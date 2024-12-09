@@ -2,8 +2,8 @@ import React, { useEffect, useRef } from 'react';
 import ChartComponent from './ChartComponent';
 import { Chart } from 'react-chartjs-2';
 
-const BarChart = ({ data }) => {
-    const barChartData = {
+const LineChart = ({ data }) => {
+    const lineChartData = {
       labels: data.months,
       datasets: [
         {
@@ -15,13 +15,13 @@ const BarChart = ({ data }) => {
         },
       ],
     };
-    const barChartOptions = {
+    const lineChartOptions = {
         scales: {
           y: {
             beginAtZero: true,
           },
         },
       };
-      return <ChartComponent type="bar" data={barChartData} options={barChartOptions} />;
+      return <ChartComponent type="line" data={barChartData} options={barChartOptions} />;
 };
-export default BarChart;
+export default LineChart
