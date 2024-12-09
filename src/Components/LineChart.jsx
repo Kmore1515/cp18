@@ -1,6 +1,5 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import ChartComponent from './ChartComponent';
-import { Chart } from 'react-chartjs-2';
 
 const LineChart = ({ data }) => {
     const lineChartData = {
@@ -9,9 +8,8 @@ const LineChart = ({ data }) => {
         {
           label: 'Monthly Profits',
           data: data.sales,
-          backgroundColor: 'rgba(75, 192, 192, 0.2)',
-          borderColor: 'rgba(75, 192, 192, 1)',
-          borderWidth: 1,
+          backgroundColor: 'rgba(34, 193, 34, 0.8)', 
+          borderColor: 'rgba(34, 193, 34, 1)', 
         },
       ],
     };
@@ -22,6 +20,6 @@ const LineChart = ({ data }) => {
           },
         },
       };
-      return <ChartComponent type="line" data={barChartData} options={barChartOptions} />;
+      return <ChartComponent type="line" data={lineChartData} options={lineChartOptions} />;
 };
 export default LineChart

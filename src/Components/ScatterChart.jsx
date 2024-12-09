@@ -1,21 +1,30 @@
 import React from "react";
 import ChartComponent from "./ChartComponent";
-import { Chart } from "react-chartjs-2";
 
 const ScatterChart = ({ data }) => {
     const scatterPlotData = {
      
       datasets: [
         {
-            label: 'Profits and Expenses',
-            data: data.expenses.map((expense, index) => ({
-              x: expense,
-              y: data.profits[index],
+            label: 'Profits',
+            data: data.sales.map((sale, index) => ({
+              x: data.profits[index],
+              y: data.expenses[index],
             })),
-            backgroundColor: 'rgba(75, 192, 192, 0.2)', 
-            borderColor: 'rgba(75, 192, 192, 1)',
-            borderWidth: 1,
-        }
+            backgroundColor: 'rgba(34, 193, 34, 0.8)', 
+            borderColor: 'rgba(34, 193, 34, 1)', 
+            borderWidth: 2,
+        },
+        {
+            label: "Expenses",
+            data: data.expenses.map((expense, index) => ({
+                x: data.profits[index],
+                y: expense,
+            })),
+            backgroundColor: 'rgba(255, 99, 132, 0.8)',
+                borderColor: 'rgba(255, 99, 132, 1)', 
+                borderWidth: 2,
+        },
       ],
     };
     const scatterPlotOptions = {

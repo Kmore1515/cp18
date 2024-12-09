@@ -1,30 +1,34 @@
 import { useEffect, useState } from 'react'
 import './App.css'
 import BarChart from './Components/BarChart'
-import ChartComponent from './Components/ChartComponent'
+import LineChart from './Components/LineChart'
+import ScatterChart from './Components/ScatterChart'
+import BubbleChart from './Components/BubbleChart'
 
 function App() {
 const [chartData, setChartData] = useState(null);
 
 useEffect(() => {
-  fetch('/financial_data.json')
+  fetch('/financial_data (1).json')
     .then((response) => response.json())
     .then((data) => setChartData(data));
 }, []);
 
-//if (!chartData) {
- // return <div>Loading...</div>;
-//}
+if (!chartData) {
+  return <div>Loading...</div>;
+}
 
 return (
-  <div style={{ textAlign: 'center' }}>
-    <h1>Dynamic Charts with React and Chart.js</h1>
-    <BarChart data={chartData} />
-    <LineChart data={chartData} />
-    <ScatterChart data={chartData} />
-    <BubbleChart data={chartData} />
-  </div>
-);
+    <>
+          <BarChart data={chartData} />
+
+          <LineChart data={chartData} />
+
+          <ScatterChart data={chartData} />
+
+          <BubbleChart data={chartData} />
+    </>
+  );
 }
 
 export default App;
