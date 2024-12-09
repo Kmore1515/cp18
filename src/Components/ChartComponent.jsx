@@ -26,4 +26,4 @@ const ChartComponent = ({ type, data, options }) =>  {
     }, [type, data, options]);
     return <canvas ref={chartRef}></canvas>;
 }
-export default ChartComponent;
+export default ChartComponent; 
